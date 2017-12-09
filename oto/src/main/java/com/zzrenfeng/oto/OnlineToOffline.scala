@@ -30,11 +30,12 @@ object OnlineToOffline{
     
     
     /**
-	 *  测试+1
+	 *  测试+1+2
 	 */
     
     offline.printSchema
     revised.printSchema()
+
     onLine.printSchema
     revised.printSchema
 }
