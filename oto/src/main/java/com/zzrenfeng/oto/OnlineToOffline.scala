@@ -34,6 +34,7 @@ object OnlineToOffline{
 	 */
     
     offline.printSchema
+    revised.printSchema()
     onLine.printSchema
     revised.printSchema
 }
