@@ -2,11 +2,15 @@ package javaa.spark.core;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.Function2;
+import org.apache.spark.api.java.function.VoidFunction;
+import scala.Tuple2;
 
 public class ActionReduce {
 	public static void main(String[] args) {
@@ -18,7 +22,9 @@ public class ActionReduce {
 		// collet(jsc);
 		//count(jsc);
 		//take(jsc);
-		saveTextFile(jsc);
+		//saveTextFile(jsc);
+		//countByKey(jsc);
+		foreach(jsc);
 		jsc.stop();
 	}
 	
@@ -26,12 +32,39 @@ public class ActionReduce {
 	private static void saveTextFile(JavaSparkContext jsc) {
 		List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 		JavaRDD<Integer> listRDD = jsc.parallelize(list);
-		listRDD.saveAsTextFile("F:\\save.txt");
+		listRDD.saveAsTextFile("D:\\save.txt");
 	}
-	
+
 	//countByKey
-	
-	//foreach 
+	private static void countByKey(JavaSparkContext jsc){
+		List<Tuple2<Integer,Integer>> pariList = Arrays.asList(new Tuple2<Integer, Integer>(1,2),
+				new Tuple2<Integer, Integer>(1,3),
+				new Tuple2<Integer, Integer>(2,2),
+				new Tuple2<Integer, Integer>(2,4),
+				new Tuple2<Integer, Integer>(1,5));
+		JavaPairRDD<Integer,Integer> pairRDD = jsc.parallelizePairs(pariList);
+		Map<Integer,Object> kvMap = pairRDD.countByKey();
+		for(Map.Entry<Integer,Object> e : kvMap.entrySet()){
+			System.out.println(e.getKey()+" "+e.getValue());
+		}
+	}
+
+	//foreach
+	private static void foreach(JavaSparkContext jsc){
+		List<Tuple2<Integer,Integer>> pariList = Arrays.asList(new Tuple2<Integer, Integer>(1,2),
+				new Tuple2<Integer, Integer>(1,3),
+				new Tuple2<Integer, Integer>(2,2),
+				new Tuple2<Integer, Integer>(2,4),
+				new Tuple2<Integer, Integer>(1,5));
+		JavaPairRDD<Integer,Integer> pairRDD = jsc.parallelizePairs(pariList);
+		pairRDD.foreach(new VoidFunction<Tuple2<Integer, Integer>>() {
+			@Override
+			public void call(Tuple2<Integer, Integer> integerIntegerTuple2) throws Exception {
+				System.out.println(integerIntegerTuple2._1()+" "+integerIntegerTuple2._2());
+			}
+		});
+
+	}
 	
 	
 
