@@ -15,7 +15,7 @@ import org.apache.spark.api.java.function.VoidFunction;
 import scala.Tuple2;
 /**
  * sort排序，和sort自定义的二次排序
- *
+ * 二次排序需要实现Ordered Serializable
  */
 public class SortTest {
 	public static void main(String[] args) {
