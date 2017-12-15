@@ -7,23 +7,58 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.FlatMapFunction;
+import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.Function2;
 import org.apache.spark.api.java.function.PairFunction;
 import org.apache.spark.api.java.function.VoidFunction;
 
 import scala.Tuple2;
-
+/**
+ * sort排序，和sort自定义的二次排序
+ *
+ */
 public class SortTest {
 	public static void main(String[] args) {
 		SparkConf conf = new SparkConf().setAppName("broadcast").setMaster("local");
 		JavaSparkContext jsc = new JavaSparkContext(conf);
 		jsc.setLogLevel("WARN");
-		sortWordCount(jsc);
-		
+		//sortWordCount(jsc);
+		secendarySort(jsc);
 		
 		jsc.stop();
 	}
 	
+	/**
+	 * 二次排序，自定义的排序类是SecondarySortKey
+	 */
+	private static void secendarySort(JavaSparkContext jsc){
+		JavaRDD<String> file = jsc.textFile(SortTest.class.getClassLoader().getResource("sort.txt").getPath());
+		JavaPairRDD<SecondarySortKey,String> pairKV = file.mapToPair(new PairFunction<String, SecondarySortKey, String>() {
+
+			@Override
+			public Tuple2<SecondarySortKey, String> call(String t)
+					throws Exception {
+				String[] split = t.split(" ");
+				return new Tuple2<SecondarySortKey, String>(new SecondarySortKey(Integer.parseInt(split[0]),Integer.parseInt(split[1])), t);
+			}
+		});
+		JavaRDD<String> sortRDD = pairKV.sortByKey().map(new Function<Tuple2<SecondarySortKey,String>, String>() {
+
+			@Override
+			public String call(Tuple2<SecondarySortKey, String> v1)
+					throws Exception {
+				return v1._2;
+			}
+		});
+		sortRDD.foreach(new VoidFunction<String>() {
+
+			@Override
+			public void call(String t) throws Exception {
+				System.out.println(t);
+				
+			}
+		});
+	}
 	/**
 	 * 排序的wordCount
 	 */
