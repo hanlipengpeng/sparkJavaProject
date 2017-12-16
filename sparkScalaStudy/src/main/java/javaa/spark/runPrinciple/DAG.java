@@ -15,7 +15,13 @@ package javaa.spark.runPrinciple;
  * ShuffleMapTask and ResultTsk
  */
 public class DAG {
-	
+	/*
+	 *  窄依赖（Narrow Dependency）：一个RDD。对他的父RDD，只有简单的一对一的依赖关系，也就是说RDD的每个partion，
+	 *  仅仅依赖于父RDD的一个partition，是一对一的关系
+	 *  
+	 *  宽依赖（shuffle Dependency）：每一个父RDD中的数据都可能传输到下一个RDD的每一个partition中，此时就会出现，父RDD和子RDD的partition之间有复杂的关系，
+	 *  那么这种情况下，就叫做两个RDD之间的宽依赖，同时他们之间发生的操作，是shuffle操作
+	 */
 
 }
 /*
