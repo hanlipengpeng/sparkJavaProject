@@ -1,4 +1,7 @@
 package javaa.spark.tuning;
+
+import java.io.Serializable;
+
 /**
  * 1：使用高性能的序列化类库
  * 2：优化数据结构
@@ -13,5 +16,5 @@ package javaa.spark.tuning;
  *
  */
 public class Memory {
-
+	
 }
