@@ -33,7 +33,7 @@ public class SerializableKryo {
 		conf.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer");
 		
 		Countter c = new Countter();
-		//conf.registerKryoClasses(c.getClass());    ??????????有毛病
+		conf.registerKryoClasses(new Class[]{Countter.class});   // ??????????有毛病
 		JavaSparkContext jsc = new JavaSparkContext(conf);
 		jsc.setLogLevel("WARN");
 		
