@@ -17,5 +17,7 @@ package javaa.spark.tuning;
  *
  */
 public class ReduceByKeyGroupByKey {
-
+	public static void main(String[] args) {
+		//JAMailboxFactory mailboxFactory = JAMailboxFactory.newMailboxFactory(1);
+	}
 }
