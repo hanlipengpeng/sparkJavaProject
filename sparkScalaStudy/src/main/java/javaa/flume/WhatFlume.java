@@ -5,5 +5,8 @@ package javaa.flume;
  *
  */
 public class WhatFlume {
+    /**
+     *
+     */
 
 }
