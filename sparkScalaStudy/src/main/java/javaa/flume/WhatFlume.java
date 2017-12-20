@@ -29,7 +29,7 @@ public class WhatFlume {
 	 * 
 	 * ### define sources 定义一个source
 	 * a1.sources.r1.type = netcat
-	 * a1.sources.r1.bind = hadoop-senior.ibeifeng.com
+	 * a1.sources.r1.bind = slave1
 	 * a1.sources.r1.port = 44444
 	 * 
 	 * ### define channels 定义一个channel
@@ -52,6 +52,12 @@ public class WhatFlume {
 	 * 对于每一个source chennel sink的配置，前面都是一样的，只是后面不一样，后面的可以参考官网的手册，看都需要配置哪些属性
 	 * http://flume.apache.org/releases/content/1.6.0/FlumeUserGuide.html
 	 * 
+	 * 常用的source：
+	 * spooldir，exec，avro，http
+	 * 常用的sink：
+	 * hdfs，hbase，hive，avro，kafka
+	 * 常用的channel：
+	 * file，memory，不常用的还有jdbc，kafka等
 	 */
 
 }
