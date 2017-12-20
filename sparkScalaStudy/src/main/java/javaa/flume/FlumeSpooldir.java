@@ -2,9 +2,16 @@ package javaa.flume;
 /**
  * flume监控文件夹
  * 
+ * 还需要学习的有过滤器
+ * 
  */
 public class FlumeSpooldir {
 	/**
+	 * 
+	 * 监控文件夹的时候，使用copy，把文件copy到目录里，注意后缀名，需要先使用一个名字，然后再去重命名，为了防止读取的时候出问题
+	 * 
+	 * 
+	 * 
 	 * ### define agent
 	 * a3.sources = r3
 	 * a3.channels = c3
