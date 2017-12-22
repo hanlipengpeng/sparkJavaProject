@@ -1,6 +1,7 @@
 package javaa.hadoop;
 
 /**
+ * hadoop
  * Created by root on 2017/12/20.
  * Conmmon
  * 	工具，基础，为服务
