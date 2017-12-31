@@ -31,6 +31,7 @@ object OnlineToOffline{
     
     /**
 	 *  测试+1+2
+      *  上传测试
 	 */
     
     offline.printSchema()
