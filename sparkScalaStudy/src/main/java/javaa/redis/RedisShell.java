@@ -2,7 +2,7 @@ package javaa.redis;
 /**
  * redis的shell操作
  * redis的五种类型：String hash set list zset
- * @author rf
+ * @author 韩利鹏
  *
  */
 public class RedisShell {
