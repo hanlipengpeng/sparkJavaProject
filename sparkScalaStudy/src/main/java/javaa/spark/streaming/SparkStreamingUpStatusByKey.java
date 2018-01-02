@@ -21,35 +21,35 @@ import org.apache.spark.streaming.kafka.KafkaUtils;
 import com.google.common.base.Optional;
 
 import scala.Tuple2;
+
+
 /**
+ * sparkStreaming 状态更新
+ * 
  * ━━━━━━神兽出没━━━━━━
- * 　　　┏┓　　　┏┓
- * 　　┏┛┻━━━┛┻┓
- * 　　┃　　　　　　　┃
- * 　　┃　　　━　　　┃
- * 　　┃　┳┛　┗┳　┃
- * 　　┃　　　　　　　┃
- * 　　┃　　　┻　　　┃
- * 　　┃　　　　　　　┃
- * 　　┗━┓　　　┏━┛
- * 　　　　┃　　　┃神兽保佑, 永无BUG!
- * 　　　　 ┃　　　┃Code is far away from bug with the animal protecting
- * 　　　　┃　　　┗━━━┓
- * 　　　　┃　　　　　　　┣┓
- * 　　　　┃　　　　　　　┏┛
- * 　　　　┗┓┓┏━┳┓┏┛
- * 　　　　　┃┫┫　┃┫┫
- * 　　　　　┗┻┛　┗┻┛
+ *　　　┏┓　　　┏┓
+ *　　┏┛┻━━━┛┻┓
+ *　　┃　　　　　　　┃
+ *　　┃　　　━　　　┃
+ *　　┃　┳┛　┗┳　┃
+ *　　┃　　　　　　　┃
+ *　　┃　　　┻　　　┃
+ *　    ┃　　　　　　　┃
+ *　　┗━┓　　　┏━┛
+ *　　　　┃　　　┃神兽保佑, 永无BUG!
+ *　　　　┃　　　┃Code is far away from bug with the animal protecting
+ *　　　　┃　　　┗━━━┓
+ *　　　　┃　　　　　　　┣┓
+ *　    　　┃　　　　　　　┏┛
+ *　　　　┗┓┓┏━┳┓┏┛
+ *　　　　　┃┫┫　┃┫┫
+ *　　　　　┗┻┛　┗┻┛
  * ━━━━━━感觉萌萌哒━━━━━━
  * Module Desc:
  * User: hanlipeng
  * DateTime: 18-1-2上午10:50
  */
-/**
- * sparkStreaming 状态更新
- * @author rf
- *
- */
+
 public class SparkStreamingUpStatusByKey {
 	public static void main(String[] args) {
 		SparkConf conf = new SparkConf();
