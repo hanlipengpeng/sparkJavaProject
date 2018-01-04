@@ -18,6 +18,7 @@ import org.apache.spark.api.java.function.VoidFunction;
 import org.apache.spark.mllib.linalg.Matrix;
 import org.apache.spark.mllib.linalg.Vector;
 import org.apache.spark.mllib.linalg.Vectors;
+import org.apache.spark.mllib.random.RandomRDDs;
 import org.apache.spark.mllib.regression.LabeledPoint;
 import org.apache.spark.mllib.stat.MultivariateStatisticalSummary;
 import org.apache.spark.mllib.stat.Statistics;
@@ -27,6 +28,13 @@ import scala.Tuple2;
 
 /**
  * 基本统计
+ * 1:Summary statistics
+ * 2:Correlations
+ * 3:Statified sampling
+ * 4:Hypothesis testing
+ *     streaming Significance Testing
+ * 5:Random data generation
+ * 6:Kernel density estimation 
  * @author rf
  *
  */
@@ -38,7 +46,8 @@ public class BaseStatistics {
 		JavaRDD<Vector> vectorRDD = getVectorRDD(jsc);
 		//summaryStatistics(vectorRDD);
 		//correlations(jsc,vectorRDD);
-		stratifiedSampling(jsc);
+		//stratifiedSampling(jsc);
+		randomDataGeneration(jsc);
 		
 		jsc.stop();
 	}
@@ -161,6 +170,41 @@ public class BaseStatistics {
 		
 	}
 	
+	
+	
+	/**
+	 * Random data generation
+	 * 其值遵循标准正太分布N(0，1),不是0-1的均匀分布，然后将其映射到N(1，4)
+	 */
+	public static void randomDataGeneration(JavaSparkContext jsc){
+		JavaDoubleRDD u = RandomRDDs.normalJavaRDD(jsc, 100L,10);
+		JavaRDD<Double> v = u.map(new Function<Double, Double>() {
+			private static final long serialVersionUID = 1L;
+			@Override
+			public Double call(Double v1) throws Exception {
+				return 1.0+2.0*v1;
+			}
+		});
+		//RandomRDDs.normalJava
+		v.foreach(new VoidFunction<Double>() {
+			private static final long serialVersionUID = 1L;
+			@Override
+			public void call(Double t) throws Exception {
+				System.out.println(t);
+			}
+		});
+	}
+	
+	
+	
+	
+	
+	/**
+	 * Kernel Density Estimation  密度估计
+	 */
+	public static void kernelDensityEstimation(){
+		
+	}
 	
 	
 	/**

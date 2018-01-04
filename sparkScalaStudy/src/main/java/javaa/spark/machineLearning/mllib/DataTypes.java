@@ -19,6 +19,14 @@ import org.apache.spark.mllib.util.MLUtils;
 
 /**
  * 机器学习的一些基本类型
+ * 1：local vector
+ * 2：labeled point
+ * 3：local matrix
+ * 4：Distributed matrix
+ * 		4.1：RowMatrix
+ * 		4.2：IndexedRowMatrix
+ * 		4.3:CoordinateMatrix
+ * 		4.4:BlockMatrix
  * @author rf
  *
  */
