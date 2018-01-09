@@ -21,13 +21,9 @@ import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
-
-/**
- * MR 读取数据
- */
 /**
  * mapreduce操作hbase
- * @author wilson
+ * @author hanlipeng
  *
  */
 public class HbaseMR {
