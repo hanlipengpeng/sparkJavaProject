@@ -17,4 +17,11 @@ public class WhatZookeeper {
      * 4：选举
      *
      */
+
+    /**
+     * 每个节点在zookeeper中叫做znode
+     * znode有两种类型
+     * 一种是临时znode，断开连接自动删除
+     * 一种是持久的znode，会保存下来，下次连接还有
+     */
 }
