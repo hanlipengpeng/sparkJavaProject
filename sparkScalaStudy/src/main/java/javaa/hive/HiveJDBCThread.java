@@ -10,7 +10,6 @@ public class HiveJDBCThread extends  Thread  {
    
     @Override  
     public void run() {  
-           
         excSparkSql();  
     }  
        
