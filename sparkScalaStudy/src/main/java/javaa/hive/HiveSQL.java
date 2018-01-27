@@ -152,6 +152,7 @@ public class HiveSQL {
  * （2）使取样（sampling）更高效。在处理大规模数据集时，在开发和修改查询的阶段，如果能在数据集的一小部分数据上试运行查询，会带来很多方便。	
  * 
  */
+<<<<<<< Updated upstream
 	
 	
 	
@@ -163,3 +164,7 @@ public class HiveSQL {
 
 	
 }
+=======
+
+}
+>>>>>>> Stashed changes
