@@ -70,7 +70,7 @@ public class DataTypes {
 		 * (0.0,6.0)
 		 *  1    2
 		 *
-		 *  colPtrs:是用来计算每列有多少个数据的 colPtrs:（0,1,3）=>(1-0,3-1) = (1,2)  即第一行有一个数据，第二行有两个数据
+		 *  colPtrs:是用来计算每列有多少个数据的 colPtrs:（0,1,3）=>(1-0,3-1) = (1,2)  即第一列有一个数据，第二列有两个数据
 		 *  rowIndices:是数据在哪一行上，根据上面的一块做就是，第一列有一个数据，在第一行上，第二列有两个数据，分别在第三行和第二行。
 		 *
 		 *  参数：numrows numcols colPtrs rowLndices value

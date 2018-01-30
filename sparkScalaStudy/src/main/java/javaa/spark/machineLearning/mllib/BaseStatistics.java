@@ -35,7 +35,7 @@ import scala.Tuple2;
  *     streaming Significance Testing
  * 5:Random data generation
  * 6:Kernel density estimation 
- * @author rf
+ * @author hanlipeng
  *
  */
 public class BaseStatistics {
