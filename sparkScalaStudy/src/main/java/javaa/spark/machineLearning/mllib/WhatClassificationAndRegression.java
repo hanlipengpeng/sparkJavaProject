@@ -2,7 +2,7 @@ package javaa.spark.machineLearning.mllib;
 /**
  * 分类和回归模型
  * 1：线性模型
- *   1.1：线性分类(逻辑回归)
+ *   1.1：线性分类(逻辑回归)   有SVMs LogisticRegression
  *   1.2：线性回归
  * 2：决策树
  * 3:决策树组合
