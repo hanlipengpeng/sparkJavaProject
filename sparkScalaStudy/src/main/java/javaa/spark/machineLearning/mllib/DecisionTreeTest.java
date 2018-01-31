@@ -20,7 +20,24 @@ import scala.Tuple2;
 /**
  * 决策树，可以进行分类，也可用作回归
  * @author 韩利鹏
- *
+ * 
+ * impurity 都有哪些参数可以专递
+ * gini 在分类中使用
+ * entropy  在分类中使用
+ * variance   在回归模型中使用
+ * 
+ * maxBins 分裂候选集  默认是32 ，没明白这个是干什么用的
+ * 
+ * maxDepth 节点最大深度
+ * 
+ * categoricalFraturesInfo 指明哪些特征是类别型的以及每个类别型特征对应值（类别）的数量。
+ * 
+ * 经常需要调节的参数
+ * algo: Classification 或者 Regression
+ * numClasses: 分类的类型数量Number of classes (只用于Classification)
+ * categoricalFeaturesInfo: 指明哪些特征是类别型的以及每个类别型特征对应值（类别）的数量。通过map来指定，map的key是特征索引，value是特征值数量。不在这个map中的特征默认是连续型的。
+ *     例如：Map(0 -> 2, 4->10)表示特征0有两个特征值(0和1)，特征4有10个特征值{0,1,2,3,…,9}。注意特征索引是从0开始的，0和4表示第1和第5个特征。
+ *     注意可以不指定参数categoricalFeaturesInfo。算法这个时候仍然会正常执行。但是类别型特征显示说明的话应该会训练出更好的模型。
  */
 public class DecisionTreeTest {
 	public static void main(String[] args) {
