@@ -7,6 +7,23 @@ package javaa.hive;
 public class HiveSQL {
 
 /**
+ * 保存select查询结果的几种方式：
+ *  1、将查询结果保存到一张新的hive表中
+ *  create table t_tmp
+ *  as
+ *  select * from t_p;
+ *
+ *  2、将查询结果保存到一张已经存在的hive表中
+ *  insert into  table t_tmp
+ *  select * from t_p;
+ *
+ *  3、将查询结果保存到指定的文件目录（可以是本地，也可以是hdfs）
+ *  insert overwrite local directory '/home/hadoop/test'
+ *  select * from t_p;
+ *
+ */
+
+/**
  * hive [-hiveconf x=y]* [<-i filename>]* [<-f filename>|<-e query-string>] [-S]
  * 说明：
  * 1、-i 从文件初始化HQL。
