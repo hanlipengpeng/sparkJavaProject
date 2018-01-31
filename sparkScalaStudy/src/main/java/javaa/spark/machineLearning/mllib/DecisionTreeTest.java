@@ -95,6 +95,9 @@ public class DecisionTreeTest {
 		//DecisionTreeModel sameModel = DecisionTreeModel.load(jsc.sc(), savePath);
 	}
 	
+	/**
+	 * 回归模型
+	 */
 	public static void regressionDicisionTree(){
 		SparkConf conf = new SparkConf().setAppName("svm").setMaster("local");
 		JavaSparkContext jsc = new JavaSparkContext(conf);
