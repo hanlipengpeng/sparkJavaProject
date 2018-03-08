@@ -166,7 +166,4 @@ public class DataTypes {
 	public static void sparsedata(JavaSparkContext jsc){
 		JavaRDD<LabeledPoint> examples = MLUtils.loadLibSVMFile(jsc.sc(), "data/mllib/sample_libsvm_data.txt").toJavaRDD();
 	}
-	
-	
-
 }
