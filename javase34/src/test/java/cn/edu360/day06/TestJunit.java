@@ -10,7 +10,7 @@ import cn.edu360.day06.SeesionBean;
 import cn.edu360.day06.TestMain1;
 
 public class TestJunit {
-	public static void main(String[] args) {
+	/*public static void main(String[] args) {
 		
 	}
 	
@@ -51,5 +51,5 @@ public class TestJunit {
 	public void testAfter(){
 		System.out.println("test之后执行的");
 	}
-
+*/
 }
